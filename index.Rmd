@@ -59,7 +59,16 @@ ggplotly(carplot)
 
 ### datatable
 ```{r}
-datatable(mtcars)
+datatable(
+  mtcars,
+  extensions = c("Buttons", "FixedColumns", "Responsive"),
+  options = list(
+    dom = "Bfrtip",
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    scrollX = TRUE,
+    fixedColumns = list(leftColumns = 1)
+  )
+)
 ```
 
 
