@@ -1,4 +1,5 @@
 Imports:
+  rmarkdown,
   tidyverse,
   DT,
   plotly
