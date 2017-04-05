@@ -1,0 +1,8 @@
+language: R
+cache: packages
+
+script:
+- Rscript -e 'rmarkdown::render("test1.Rmd")'
+
+deploy:
+  skip_cleanup: true

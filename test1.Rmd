@@ -1,0 +1,53 @@
+---
+title: "Travis CI Test"
+author: "Alex Axthelm"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+    theme: readable
+    highlight: zenburn
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+```
+
+
+# Introduction
+This page is intended to provide a test to my ability to render RMarkdown documents and deploy to GithubPages using TravisCI
+
+## Show some R code
+```{r}
+1 + 1
+5:10
+```
+
+```{r}
+(mtcars)
+```
+
+Show me a plot
+```{r}
+carplot <- ggplot(data = mtcars, aes(
+  x = wt,
+  y = mpg,
+  color = factor(vs)
+)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  facet_grid(. ~ am)
+```
+
+```{r}
+carplot
+```
+
+
+
