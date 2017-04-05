@@ -17,6 +17,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(ggplot2)
+library(DT)
+library(plotly)
 ```
 
 
@@ -30,7 +32,7 @@ This page is intended to provide a test to my ability to render RMarkdown docume
 ```
 
 ```{r}
-(mtcars)
+head(mtcars)
 ```
 
 Show me a plot
@@ -49,5 +51,15 @@ carplot <- ggplot(data = mtcars, aes(
 carplot
 ```
 
+## htmlwidgets
+### Plotly
+```{r}
+ggplotly(carplot)
+```
+
+### datatable
+```{r}
+datatable(mtcars)
+```
 
 
