@@ -2,7 +2,7 @@ language: R
 cache: packages
 
 script:
-- Rscript -e 'rmarkdown::render("test1.Rmd")'
+- Rscript -e 'rmarkdown::render("index.Rmd")'
 
 deploy:
   provider: pages
