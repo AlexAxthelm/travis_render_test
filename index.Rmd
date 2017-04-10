@@ -15,11 +15,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r load_packages, message=FALSE}
 library(ggplot2)
 library(DT)
 library(plotly)
+library(PKI)
+library(secure)
 ```
+
 
 
 # Introduction
@@ -61,7 +64,10 @@ ggplotly(carplot)
 ```{r}
 datatable(
   mtcars,
-  extensions = c("Buttons", "FixedColumns", "Responsive"),
+  extensions = c("Buttons",
+                 "FixedColumns"#,
+                 # "Responsive"
+                 ),
   options = list(
     dom = "Bfrtip",
     buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
@@ -70,5 +76,38 @@ datatable(
   )
 )
 ```
+
+## Secure
+Let's try using Hadley's `Secure` package
+
+```{r initialize_secure}
+# secure::add_user("Alex Axthelm", local_key())
+# secure::add_user("AlexAxthelm_gh", github_key("AlexAxthelm"))
+# secure::add_user("travis", travis_key("AlexAxthelm/travis_render_test"))
+```
+
+This should show the results of secret data frame that was encrypted on a development machine, and rendered here on Travis.
+```{r Load_secret_data}
+# the secret data frame is iris.
+Sys.getenv("OS")
+Sys.getenv("CONTINUOUS_INTEGRATION")
+
+# Note that secure returns a list, so we need to do a list operator to get the actual data.
+secret_data <- decrypt("this_is_iris")[[1]]
+identical(secret_data, iris)
+```
+
+```{r}
+enc_df <- mtcars %>% filter(am ==1)
+secure::encrypt("enc_df", key = "abcdasdf", secret = enc_df)
+head(enc_df)
+remove(enc_df)
+try(head(enc_df))
+```
+
+```{r}
+secure::decrypt("enc_df")
+```
+
 
 
