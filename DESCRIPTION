@@ -1,0 +1,11 @@
+Imports:
+  rmarkdown,
+  tidyverse,
+  DT,
+  plotly,
+  devtools,
+  secure,
+  PKI
+Remotes:
+  s-u/PKI,
+  hadley/secure

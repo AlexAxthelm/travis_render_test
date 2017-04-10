@@ -1,0 +1,14 @@
+language: R
+cache: packages
+env:
+  - secure: ZLop310VPUXe9uCKvnuANn1y6wvFe+MCXSgqWLJlH+aftOjCvTEHKvM/wAvafULGz4BhyiE/PSnly91XjDdWbWFZxvbtxMJYnC4bs9wxNvrjbU9jO0il73hAlW/vpYoypz+reReg8RgvFSfhxF/x9koylQ7jt/jr0YyJaXKBzKu6jjsOK1NzrNxm4ukLm1liXKBv8Usul+G3mPXyWhvuOVr09iPs4vgnvOg/1rNCFj7245ddtrStYGZTzj02L64hedY9RtQJEDaC4fBPRqVdNzNykBPgGN5lv5UWPRLKHgiMIxAdMyMAMPmyc/SX7LNivhMh6jmscQn5mPSQ1DzsY9aCk19QL2URL631io+8KPZZHRIjw2ygxT1OFgegpDVlK89yukb+RRebx+b9ARhNB5TNGN5UgntoV3ViLUr8+u3AcNGI/ZtRBDu02JDpSTPIR0MSwQD1HLIPAvWkno+1QGoeHE7ALoEx9Bq4P2+NqAuBzb28bDa9nYZCVQMVr0An4BML9RdKnbPnJQ7FCnysbR7erCZ/S5JTVKfuS3f5F4ETQYLuYYHP2oPnokfNf/TupAaP8uq1VUs9fNtjv3a1GO4OEV0rSHZ1Yd5qqdImU1uR0xH8j1bLkTz31F0xEa3XnaFD+KqtqK0bGyWDhrrd48s3rIzmK6kCefN1eLZuz4o=
+
+script:
+- Rscript -e 'rmarkdown::render("index.Rmd")'
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
