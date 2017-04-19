@@ -92,6 +92,8 @@ This should show the results of secret data frame that was encrypted on a develo
 Sys.getenv("OS")
 Sys.getenv("CONTINUOUS_INTEGRATION")
 
+local_key()
+
 # Note that secure returns a list, so we need to do a list operator to get the actual data.
 secret_data <- decrypt("this_is_iris")[[1]]
 identical(secret_data, iris)
