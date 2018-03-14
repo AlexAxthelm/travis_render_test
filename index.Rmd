@@ -110,7 +110,3 @@ try(head(enc_df))
 ```{r}
 secure::decrypt("enc_df")
 ```
-
-Changing the global gitconfig
-
-
