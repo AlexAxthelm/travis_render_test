@@ -112,5 +112,6 @@ secure::decrypt("enc_df")
 ```
 
 Now I'm trying gpg signing
+Changing the global gitconfig
 
 
